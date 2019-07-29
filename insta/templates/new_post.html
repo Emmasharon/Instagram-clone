@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+
+<form  action="{%url 'timeline' %}" method="post">
+        {% csrf_token %}
+    
+        {% bootstrap_form postform %}
+        <input type="submit" class="btn-outline-info" value="New Post">
+    </form>
+{% endblock %}
