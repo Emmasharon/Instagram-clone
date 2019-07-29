@@ -27,29 +27,26 @@
     </div>
 </div> -->
 
-<!-- Card -->
-<div class="card " style="height: 400px; width: 500px;">
+<div class=" card container " >
+{% for post in posts %}
+<!-- <div class=" " style="height: 40vh; width: 60vh;"> -->
         <div >
-            <img src="{{user.profile.profile_pic.url}}" alt="" style="height: 40px; width: 40px; border-radius: 50%">
+            <a href="/accounts/profile"><img src="{{user.profile.profile_pic.url}}" alt="" style="height: 40px; width: 40px; border-radius: 50%"></a>
             <div style="float: right;"> 
-            <a href="">@{{user.username}}</a>
+            <p>@{{user.username}}</p>
         </div>
-        {% for post in posts %}
-        <!-- Card image -->
-        <img class="card-img-top" src="{{post.pic.url}}" alt="Card image cap">
-      
-        <!-- Card content -->
+        <img class="card-img-top" src="{{post.pic.url}}" style="height: 500px; width: 1000px;" alt="Card image cap">
         <div class="card-body">
-      
-          <!-- Title -->
-          <h4 class="card-title"><a>@{{user.username}}</a></h4>
-          <!-- Text -->
-          <p class="card-text"></p>{{post.caption}}</p>
-          <!-- Button -->
+        <p class="card-text"></p>{{post.caption}}</p>
+        <div>
+            <p><i class="fa fa-heart" style="font-size:48px;color:red"></i>{{post.like}}</p>
+            <p><i class="far fa-comment-alt" style="font-size:48px;color:red"></i>{{comment.comment}}</p>
+        </div>
           <a href="comment.html" class="btn btn-primary">{{comment.comment}}</a>
           {% endfor %}
         </div>
       
       </div>
-      <!-- Card -->
+    <!-- </div> -->
+</div>
 {% endblock %}
