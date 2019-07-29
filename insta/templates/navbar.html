@@ -10,37 +10,31 @@
 <body>
   {% block content %}
   {% if user.is_authenticated %}
-  <nav class="navbar navbar-inverse">
+  <nav class="">
     <div class="container-fluid">
         
       <div class="navbar-header">
-        <a class="navbar-brand" href="/accounts/timeline"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6hl-fk1fOkaxtN5Mjr8an2rN3kCE77hU7nwMJirOMHIZXppGafw" alt="some text" width=60 height=40></a>
+        <a class="navbar-brand" href="/accounts/timeline"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6hl-fk1fOkaxtN5Mjr8an2rN3kCE77hU7nwMJirOMHIZXppGafw" alt="Timeline" width=60 height=40></a>
       </div>
-      
       
       <div class="col-sm-6 col-md-6">
-       
-        <ul>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-                <li>
-                    <a class='btn btn-default' href="/accounts/timeline">Timeline</a>
-                  </li>
-              <li>
-                <a href="/logout">Logout</a>
+        <ul style="">
+              <li style="display: inline;padding: 20px; border-radius: 50px;">
+                  <a href="/accounts/profile"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKxm70XwdJSXQCAon4iody9X81idhDurgyFaS8o16bbzYJGTB4" alt="Profile" width=50 height=50></a>
               </li>
-            </ul>
-          </li>
-        </ul>
-        {% else %}
-        <li>
-          <a class='btn btn-default' href="/accounts/login">Login</a>
-        </li>
-        {% endif %}
-      </div>
+              <li style="display: inline;padding: 20px;border-radius: 50%;">
+                  <a href="/accounts/new_post"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoCsKmIANm247qiJeJ2TBPBlDU-VTHVYsAA9lxwqsug_5U9Fz9" alt="Upload" width=60 height=40></a>
+              </li>
+              <li style="display: inline;padding: 20px;">
+                  <a href="/logout">Logout</a>
+              </li>
+          </ul>
+   
+       </div>
     </div>
   </nav>
+  {% else %}
+  {% endif %}
   {% endblock %}
 </body>
 </html>
