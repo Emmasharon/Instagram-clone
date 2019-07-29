@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+
+<head>
+    
+</head>
+    <body>
+    <h1>@{{user.username}}</h1>
+    <div class="card col-md-4">
+            <!-- <img src="{{user.profile.profile_pic.url}}" alt="" style="height: 40px; width: 40px; border-radius: 50%"> -->
+            
+            {% for post in posts %}
+                {% if user.profile.id == post.profile.id %}
+                <div class="text-center">
+                    <img src="{{post.pic.url}}" alt="" >
+                </div>
+                <div>
+                    <p><i class="fa fa-heart-o" style="font-size:48px;color:red"></i>{{post.like}}</p>
+                    <p><i class="far fa-comment-alt" style="font-size:48px;color:red"></i>{{comment.comment}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        
+                {% if user.profile.profile_pic.url %}
+                <!-- <img src="{{user.profile.profile_pic.url}}" alt="" id="profilepic" >
+                {% else %} -->
+                <form  action="{%url 'profile' %}" method="post" enctype="multipart/form-data" >
+                    {% csrf_token %}
+            
+                    {% bootstrap_form profileform %}
+                    <input type="submit" value="Add Profile">
+                </form>
+            {% endif %}
+
+            
+        <p>{{user.username}}</p>
+        <img src="{{user.profile_pic.url}}" alt="">
+    </div>
+       
+{% endblock%}
+</body>
