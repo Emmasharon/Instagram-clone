@@ -30,23 +30,36 @@
 <div class=" card container " >
 {% for post in posts %}
 <!-- <div class=" " style="height: 40vh; width: 60vh;"> -->
-        <div >
-            <a href="/accounts/profile"><img src="{{user.profile.profile_pic.url}}" alt="" style="height: 40px; width: 40px; border-radius: 50%"></a>
-            <div style="float: right;"> 
+        <div class="" style="padding-top: 80px;">
+            <a href="/accounts/profile"><img src="{{user.profile.profile_pic.url}}" alt="" style="height: 40px; width: 40px; border-radius: 50%; float: left;"></a>
+            <div style="float: right; font-size: 20px;"> 
             <p>@{{user.username}}</p>
-        </div>
-        <img class="card-img-top" src="{{post.pic.url}}" style="height: 500px; width: 1000px;" alt="Card image cap">
+            </div>
+        <img class="card-img-top" src="{{post.pic.url}}" style="height: 500px; width: 900px;" alt="Card image cap">
         <div class="card-body">
-        <p class="card-text"></p>{{post.caption}}</p>
-        <div>
-            <p><i class="fa fa-heart" style="font-size:48px;color:red"></i>{{post.like}}</p>
-            <p><i class="far fa-comment-alt" style="font-size:48px;color:red"></i>{{comment.comment}}</p>
-        </div>
-          <a href="comment.html" class="btn btn-primary">{{comment.comment}}</a>
+        <p class="card-text" style="font-size: 20px;">{{post.caption}}</p>
+
+        <div class="col-md-4 col-sm-3">
+                <button id="comment" class="btn btn-info"><i class="fa fa-heart" style="font-size:48px; color:red">
+                        {% for like in posts %}
+                        {% if like.post == post.id %}
+                            {{like.count}}
+                        {% endif %}
+                        {% endfor %}
+                    </i>
+                <button>
+                <button id="comment" class="btn btn-info"><i class="fas fa-comment" style="font-size:48px;">
+                        {% for comment in comments %}
+                        {% if comment.post == post.id %}
+                            {{comment.count}}
+                        {% endif %}
+                        {% endfor %}
+                    </i>
+                </button>
+            </div>
           {% endfor %}
         </div>
       
       </div>
-    <!-- </div> -->
 </div>
 {% endblock %}
