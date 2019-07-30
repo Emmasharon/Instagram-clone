@@ -1,4 +1,4 @@
-from .models import Profile,Post
+from .models import Profile,Post, Comment
 from django import forms
 
 class ProfileForm(forms.ModelForm):
@@ -9,4 +9,10 @@ class ProfileForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ['profile','date','like']
+        fields = ['pic','caption']
+        exclude = ['profile','like']
+        
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        exclude = ['post','username','date','count']
