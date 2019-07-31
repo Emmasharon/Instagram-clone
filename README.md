@@ -4,7 +4,7 @@
 A django application where a user can create an account, login and share photos with other users. The users can also like and comment on ther people's pictures.
 
 #### Link to deployed site
-https://Instagram254.herokuapp.com/
+https://emmagram.herokuapp.com
 
 ## Table of content
 1. [Description](#description)
@@ -20,7 +20,8 @@ https://Instagram254.herokuapp.com/
 | request page       | click horuku link url | view images          |                    
 |sign up      | registration form  | login page         |
 |login        | login form  | timeline page         |
-|view images accorging | click on timeline  |    user goes to page containing all images|  
+|profile  | click on profile icon | view profile page  |
+|view all images | click on timeline  |    user goes to page containing all images|  
 
 ## Setup and installations
 
